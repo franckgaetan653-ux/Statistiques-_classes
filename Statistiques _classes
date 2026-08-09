@@ -1,0 +1,40 @@
+# Statistiques-_classes
+Calcule la moyenne d'une classe à partir des notes saisies, identifie la meilleure et la pire note, compte les admis/ajournés, et affiche une appréciation globale de la classe.
+eleves = int(input("Combien d'élèves y'a t'il?:"))
+somme = 0
+eleves_admis = 0
+eleves_ajournes = 0
+meilleure_note = None
+pire_note = None
+
+for i in range(eleves):
+    notes = int(input("Quelle est sa note ?:"))
+    somme += notes
+
+    if meilleure_note is None or notes > meilleure_note:
+        meilleure_note = notes
+
+    if pire_note is None or notes < pire_note:
+        pire_note = notes
+
+    if notes >= 10:
+        eleves_admis += 1
+    else:
+        eleves_ajournes += 1
+
+moyenne_classe = somme / eleves
+
+print("nombre d'élèves ajournés:", eleves_ajournes)
+print("nombre d'élèves admis:", eleves_admis)
+print("la pire note est:", pire_note)
+print("la meilleure note est:", meilleure_note)
+print("la moyenne de la classe:", moyenne_classe)
+
+if moyenne_classe >= 16:
+    print("Classe excellente")
+elif moyenne_classe >= 14:
+    print("Très bonne classe")
+elif moyenne_classe >= 10:
+    print("Classe moyenne")
+else:
+    print("Classe faible")
